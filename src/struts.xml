@@ -5,5 +5,10 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-
+    <package name="struts2" extends="struts-default">
+        <action name="login" class="userAction" method="login">
+            <result name="success">index.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+    </package>
 </struts>
