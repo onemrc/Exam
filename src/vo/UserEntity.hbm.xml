@@ -4,10 +4,10 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="vo.UserEntity" table="user" schema="exam">
+    <class name="vo.UserEntity" table="user" schema="exam" dynamic-update="true" dynamic-insert="true">
         <id name="userId" column="user_id"/>
         <property name="userName" column="user_name"/>
-        <property name="password" column="password"/>
-        <property name="permit" column="permit"/>
+        <property name="password" column="user_password"/>
+        <property name="permit" column="user_permit"/>
     </class>
 </hibernate-mapping>

@@ -9,6 +9,9 @@ public class UserEntity {
     private String userName;
     private String password;
     private int permit;
+    private String userPassword;
+    private String userEmail;
+    private int userPermit;
 
     @Id
     @Column(name = "user_id")
@@ -31,7 +34,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "password")
+    @Column(name = "user_password")
     public String getPassword() {
         return password;
     }
@@ -41,7 +44,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "permit")
+    @Column(name = "user_permit")
     public int getPermit() {
         return permit;
     }
@@ -59,8 +62,7 @@ public class UserEntity {
 
         if (userId != that.userId) return false;
         if (permit != that.permit) return false;
-        if (userName != null ? !userName.equals(that.userName) : that.userName != null) return false;
-        return password != null ? password.equals(that.password) : that.password == null;
+        return (userName != null ? userName.equals(that.userName) : that.userName == null) && (password != null ? password.equals(that.password) : that.password == null);
     }
 
     @Override
@@ -70,5 +72,35 @@ public class UserEntity {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + permit;
         return result;
+    }
+
+    @Basic
+    @Column(name = "user_password")
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
+    @Basic
+    @Column(name = "user_email")
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    @Basic
+    @Column(name = "user_permit")
+    public int getUserPermit() {
+        return userPermit;
+    }
+
+    public void setUserPermit(int userPermit) {
+        this.userPermit = userPermit;
     }
 }

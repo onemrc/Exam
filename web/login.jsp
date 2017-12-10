@@ -12,11 +12,11 @@
 </head>
 <body>
     <form action="login.action" method="post">
-       用户名：  <input type="text" name="userEntity.userName">
+       用户名：  <input type="text" name="userEntity.userName" required>
         <br>
-        密码：<input type="password" name="userEntity.password">
+        密码：<input type="password" name="userEntity.password" required>
         <br>
-        <input type="radio" name="userEntity.permit" value="0">管理员
+        <input type="radio" name="userEntity.permit" value="0" >管理员
         <br>
         <input type="radio" name="userEntity.permit" value="1">用户
         <br>

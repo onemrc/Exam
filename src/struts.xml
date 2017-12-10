@@ -10,5 +10,10 @@
             <result name="success">index.jsp</result>
             <result name="error">error.jsp</result>
         </action>
+
+        <action name="register" class="studentAction" method="apply">
+            <result name="success">addStudentSuccess.jsp</result>
+            <result name="error">addStudentError.jsp</result>
+        </action>
     </package>
 </struts>

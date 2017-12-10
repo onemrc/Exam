@@ -1,11 +1,16 @@
 package service.impl;
 
-import dao.impl.UserDAO;
+import dao.IUserDAO;
 import service.IUserService;
 import vo.UserEntity;
 
 public class UserService implements IUserService {
-    private UserDAO userDAO;
+    private IUserDAO userDAO;
+
+    @Override
+    public UserEntity addUser(UserEntity userEntity) {
+        return userDAO.addUser(userEntity);
+    }
 
     @Override
     public UserEntity validateUser(String username, String password, int permit) {
@@ -13,12 +18,11 @@ public class UserService implements IUserService {
     }
 
 
-
-    public UserDAO getUserDAO() {
+    public IUserDAO getUserDAO() {
         return userDAO;
     }
 
-    public void setUserDAO(UserDAO userDAO) {
+    public void setUserDAO(IUserDAO userDAO) {
         this.userDAO = userDAO;
     }
 }

@@ -3,6 +3,7 @@ package dao.impl;
 import dao.BaseDAO;
 import dao.IUserDAO;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import vo.UserEntity;
 
@@ -25,6 +26,21 @@ public class UserDAO extends BaseDAO implements IUserDAO{
         if (users.size()!=0){
             return (UserEntity)users.get(0);
         }
+        session.close();
+        return null;
+    }
+
+    @Override
+    public UserEntity addUser(UserEntity userEntity) {
+        Session session=getSession();
+        //开启事务
+        Transaction tx=session.beginTransaction();
+
+        session.save(userEntity);
+
+        //提交事务
+        tx.commit();
+        session.close();
         return null;
     }
 }

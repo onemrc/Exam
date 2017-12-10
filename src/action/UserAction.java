@@ -3,18 +3,36 @@ package action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import service.IUserService;
+import vo.StudentEntity;
 import vo.UserEntity;
 
 import java.util.Map;
 
 public class UserAction extends ActionSupport{
-    private UserEntity userEntity;      //接收界面输入的用户信息
+    private UserEntity userEntity;      //接收登录界面输入的用户信息
+    private StudentEntity studentEntity;    //接受管理员审核通过的学生信息
+
+
     private IUserService userService;
 
+//    用户登陆
     public String login(){
         UserEntity u=userService.validateUser(userEntity.getUserName(),userEntity.getPassword(),userEntity.getPermit());
         if (u!=null){
-            Map session= ActionContext.getContext().getSession();
+            Map<String, Object> session= ActionContext.getContext().getSession();
+
+//            保存此次会话信息
+            session.put("user",u);
+            return SUCCESS;
+        }
+        return ERROR;
+    }
+
+//    递交学生信息
+    public String register(){
+        UserEntity u=userService.addUser(userEntity);
+        if (u!=null){
+            Map<String, Object> session= ActionContext.getContext().getSession();
 
 //            保存此次会话信息
             session.put("user",u);
@@ -41,6 +59,15 @@ public class UserAction extends ActionSupport{
     public void setUserEntity(UserEntity userEntity) {
         this.userEntity = userEntity;
     }
+
+    public StudentEntity getStudentEntity() {
+        return studentEntity;
+    }
+
+    public void setStudentEntity(StudentEntity studentEntity) {
+        this.studentEntity = studentEntity;
+    }
+
 
     public IUserService getUserService() {
         return userService;

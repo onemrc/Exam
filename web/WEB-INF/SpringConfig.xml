@@ -8,7 +8,7 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/exam"/>
         <property name="username" value="root"/>
-        <property name="password" value="root"/>
+        <property name="password" value="123456"/>
     </bean>
 
     <bean id="sessionFaction" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -18,20 +18,29 @@
                 <prop key="hibernate.dialect">
                     org.hibernate.dialect.MySQLDialect
                 </prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/exam</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
             </props>
         </property>
         <property name="mappingResources">
             <list>
                 <value>vo/UserEntity.hbm.xml</value>
+                <value>vo/StudentEntity.hbm.xml</value>
+                <value>vo/ExamineEntity.hbm.xml</value>
+            </list>
+        </property>
+        <property name="annotatedClasses">
+            <list>
+                <value>vo.ExamineEntity</value>
             </list>
         </property>
     </bean>
 
-    <bean id="BaseDAO" class="dao.BaseDAO">
+    <bean id="baseDAO" class="dao.BaseDAO">
         <property name="sessionFactory" ref="sessionFaction"/>
     </bean>
 
-    <bean id="userDAO" class="dao.impl.UserDAO" parent="BaseDAO">
+    <bean id="userDAO" class="dao.impl.UserDAO" parent="baseDAO">
     </bean>
 
     <bean id="userService" class="service.impl.UserService">
@@ -43,4 +52,14 @@
         <property name="userService" ref="userService"/>
     </bean>
 
+
+    <bean id="studentDAO" class="dao.impl.StudentDAO" parent="baseDAO"/>
+
+    <bean id="studentService" class="service.impl.StudentService">
+        <property name="studentDAO" ref="studentDAO"/>
+    </bean>
+
+    <bean id="studentAction" class="action.StudentAction">
+        <property name="studentService" ref="studentService"/>
+    </bean>
 </beans>

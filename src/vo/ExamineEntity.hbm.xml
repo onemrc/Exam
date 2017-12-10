@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="vo.ExamineEntity" table="examine" schema="exam" dynamic-update="true" dynamic-insert="true">
+        <id name="exId">
+            <column name="ex_id" sql-type="int(32)"/>
+        </id>
+        <property name="stuId">
+            <column name="stu_id" sql-type="int(32)"/>
+        </property>
+        <property name="exStatus">
+            <column name="ex_status" sql-type="int(2)"/>
+        </property>
+    </class>
+</hibernate-mapping>
