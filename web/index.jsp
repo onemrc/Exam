@@ -7,17 +7,17 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
-  <head>
+<head>
     <title>$Title$</title>
-  </head>
+</head>
 
-  <link rel="stylesheet" type="text/css" href="css/common.css">
-  <body>
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<body>
 
-  <h1>Hello,World!</h1>
-  <div class="header-panel container">
-  </div>
-  </body>
+<h1>Hello,World!</h1>
+<div class="header-panel container">
+</div>
+</body>
 </html>
 
 

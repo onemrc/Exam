@@ -17,6 +17,11 @@ public class StudentService implements IStudentService {
         return studentDAO.findStudentById(stu_id);
     }
 
+    @Override
+    public void findStuIdByRegister(StudentEntity studentEntity) {
+        studentDAO.findStuIdByRegister(studentEntity);
+    }
+
     public IStudentDAO getStudentDAO() {
         return studentDAO;
     }

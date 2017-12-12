@@ -8,50 +8,28 @@ import vo.UserEntity;
 
 import java.util.Map;
 
-public class UserAction extends ActionSupport{
+public class UserAction extends ActionSupport {
     private UserEntity userEntity;      //接收登录界面输入的用户信息
     private StudentEntity studentEntity;    //接受管理员审核通过的学生信息
 
 
     private IUserService userService;
 
-//    用户登陆
-    public String login(){
-        UserEntity u=userService.validateUser(userEntity.getUserName(),userEntity.getPassword(),userEntity.getPermit());
-        if (u!=null){
-            Map<String, Object> session= ActionContext.getContext().getSession();
+    //    用户登陆
+    public String login() {
+        UserEntity u = userService.validateUser(userEntity.getUserName(), userEntity.getPassword(), userEntity.getPermit());
+        if (u != null) {
+            Map<String, Object> session = ActionContext.getContext().getSession();
 
 //            保存此次会话信息
-            session.put("user",u);
-            return SUCCESS;
-        }
-        return ERROR;
-    }
-
-//    递交学生信息
-    public String register(){
-        UserEntity u=userService.addUser(userEntity);
-        if (u!=null){
-            Map<String, Object> session= ActionContext.getContext().getSession();
-
-//            保存此次会话信息
-            session.put("user",u);
+            session.put("user", u);
             return SUCCESS;
         }
         return ERROR;
     }
 
 
-
-
-
-
-
-
-
-
-
-//    set、get
+    //    set、get
     public UserEntity getUserEntity() {
         return userEntity;
     }

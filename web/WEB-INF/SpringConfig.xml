@@ -61,5 +61,12 @@
 
     <bean id="studentAction" class="action.StudentAction">
         <property name="studentService" ref="studentService"/>
+        <property name="examineService" ref="examineService"/>
+    </bean>
+
+    <bean id="examineDAO" class="dao.impl.ExamineDAO" parent="baseDAO"/>
+
+    <bean class="service.impl.ExamineService" id="examineService">
+        <property name="examineDAO" ref="examineDAO"/>
     </bean>
 </beans>

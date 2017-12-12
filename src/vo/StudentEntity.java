@@ -1,7 +1,6 @@
 package vo;
 
 import javax.persistence.*;
-import java.util.Arrays;
 
 @Entity
 @Table(name = "student", schema = "exam")
@@ -51,8 +50,6 @@ public class StudentEntity {
     public void setStuPhone(int stuPhone) {
         this.stuPhone = stuPhone;
     }
-
-
 
 
     @Override

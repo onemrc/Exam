@@ -1,6 +1,5 @@
 package dao;
 
-import vo.StudentEntity;
 import vo.UserEntity;
 
 public interface IUserDAO {

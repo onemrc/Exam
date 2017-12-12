@@ -14,7 +14,7 @@ public class UserService implements IUserService {
 
     @Override
     public UserEntity validateUser(String username, String password, int permit) {
-        return userDAO.validateUser(username,password,permit);
+        return userDAO.validateUser(username, password, permit);
     }
 
 

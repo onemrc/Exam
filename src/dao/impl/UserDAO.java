@@ -9,22 +9,22 @@ import vo.UserEntity;
 
 import java.util.List;
 
-public class UserDAO extends BaseDAO implements IUserDAO{
+public class UserDAO extends BaseDAO implements IUserDAO {
     @Override
     public UserEntity validateUser(String userName, String password, int permit) {
-        String hql="from UserEntity u where u.userName=? and u.password=? and u.permit=?";
+        String hql = "from UserEntity u where u.userName=? and u.password=? and u.permit=?";
 
-        Session session=getSession();
-        Query query=session.createQuery(hql);
+        Session session = getSession();
+        Query query = session.createQuery(hql);
 
-        int index=0;
-        query.setParameter(index,userName);
-        query.setParameter(++index,password);
-        query.setParameter(++index,permit);
+        int index = 0;
+        query.setParameter(index, userName);
+        query.setParameter(++index, password);
+        query.setParameter(++index, permit);
 
-        List users=query.list();
-        if (users.size()!=0){
-            return (UserEntity)users.get(0);
+        List users = query.list();
+        if (users.size() != 0) {
+            return (UserEntity) users.get(0);
         }
         session.close();
         return null;
@@ -32,9 +32,9 @@ public class UserDAO extends BaseDAO implements IUserDAO{
 
     @Override
     public UserEntity addUser(UserEntity userEntity) {
-        Session session=getSession();
+        Session session = getSession();
         //¿ªÆôÊÂÎñ
-        Transaction tx=session.beginTransaction();
+        Transaction tx = session.beginTransaction();
 
         session.save(userEntity);
 
