@@ -2,7 +2,6 @@
 
 javaEE课设
 
+# 开发环境
+
 框架struts2+hibernate+spring
-
-
-数据库 用户名 root 密码 123456
