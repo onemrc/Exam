@@ -77,6 +77,7 @@ public class UserEntity {
 
     @Override
     public int hashCode() {
+
         int result = userId;
         result = 31 * result + (userName != null ? userName.hashCode() : 0);
         result = 31 * result + (userPassword != null ? userPassword.hashCode() : 0);

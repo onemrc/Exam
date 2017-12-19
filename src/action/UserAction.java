@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class UserAction extends ActionSupport {
     private UserEntity userEntity;      //接收登录界面输入的用户信息
-    private StudentEntity studentEntity;    //接受管理员审核通过的学生信息
+    private StudentEntity studentEntity;    //接受管理员审核通过的学生信息.
 
 
     private IUserService userService;
