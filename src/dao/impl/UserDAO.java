@@ -12,7 +12,7 @@ import java.util.List;
 public class UserDAO extends BaseDAO implements IUserDAO {
     @Override
     public UserEntity validateUser(String userName, String password, int permit) {
-        String hql = "from UserEntity u where u.userName=? and u.password=? and u.permit=?";
+        String hql = "from UserEntity u where u.userName=? and u.userPassword=? and u.userPermit=?";
 
         Session session = getSession();
         Query query = session.createQuery(hql);
@@ -43,4 +43,6 @@ public class UserDAO extends BaseDAO implements IUserDAO {
         session.close();
         return null;
     }
+
+
 }

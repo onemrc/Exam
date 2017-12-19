@@ -15,5 +15,14 @@
             <result name="success">addStudentSuccess.jsp</result>
             <result name="error">addStudentError.jsp</result>
         </action>
+
+        <action name="showStu" class="studentAction" method="showStu">
+            <result name="success">stuMenu.jsp</result>
+        </action>
+
+        <action name="setExStatus" class="examAction" method="setExStatus">
+            <result name="success">stuMenu.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
     </package>
 </struts>

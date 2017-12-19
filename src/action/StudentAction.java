@@ -2,11 +2,16 @@ package action;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.ServletActionContext;
+import org.springframework.http.HttpRequest;
 import service.IExamineService;
 import service.IStudentService;
 import vo.ExamineEntity;
 import vo.StudentEntity;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Map;
 
 public class StudentAction extends ActionSupport {
@@ -38,6 +43,18 @@ public class StudentAction extends ActionSupport {
         ExamineEntity examineEntity = new ExamineEntity();
         examineEntity.setStuId(stu_id);
         examineService.addStuIdToExam(examineEntity);
+    }
+
+    //    显示学生信息
+    public String showStu(){
+        StudentEntity studentEntity=new StudentEntity();
+        List result=studentService.showStu(studentEntity);
+        HttpServletRequest request= ServletActionContext.getRequest();
+        request.setAttribute("stuList",result);
+        if (result.size()!=0){
+            return SUCCESS;
+        }
+        return ERROR;
     }
 
 //    getting、setting

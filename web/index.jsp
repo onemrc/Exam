@@ -14,9 +14,14 @@
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <body>
 
-<h1>Hello,World!</h1>
-<div class="header-panel container">
-</div>
+<form action="showStu.action" method="post">
+    <input type="submit" value="查询待审核学生信息">
+</form>
+
+
+<a href="login.jsp">登陆</a><br>
+<a href="register.jsp">注册</a><br>
+
 </body>
 </html>
 
@@ -32,3 +37,4 @@
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+

@@ -8,4 +8,7 @@ public interface IUserDAO {
     UserEntity validateUser(String userName, String password, int permit);
 
     UserEntity addUser(UserEntity userEntity);
+
+
+
 }

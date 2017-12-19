@@ -32,6 +32,7 @@
         <property name="annotatedClasses">
             <list>
                 <value>vo.ExamineEntity</value>
+                <value>vo.UserEntity</value>
             </list>
         </property>
     </bean>
@@ -68,5 +69,10 @@
 
     <bean class="service.impl.ExamineService" id="examineService">
         <property name="examineDAO" ref="examineDAO"/>
+    </bean>
+
+    <bean class="action.ExamAction" id="examAction">
+        <property name="examineService" ref="examineService"/>
+        <property name="userService" ref="userService"/>
     </bean>
 </beans>

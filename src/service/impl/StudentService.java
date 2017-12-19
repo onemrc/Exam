@@ -4,6 +4,8 @@ import dao.IStudentDAO;
 import service.IStudentService;
 import vo.StudentEntity;
 
+import java.util.List;
+
 public class StudentService implements IStudentService {
     private IStudentDAO studentDAO;
 
@@ -20,6 +22,11 @@ public class StudentService implements IStudentService {
     @Override
     public void findStuIdByRegister(StudentEntity studentEntity) {
         studentDAO.findStuIdByRegister(studentEntity);
+    }
+
+    @Override
+    public List showStu(StudentEntity studentEntity) {
+        return studentDAO.showStu(studentEntity);
     }
 
     public IStudentDAO getStudentDAO() {

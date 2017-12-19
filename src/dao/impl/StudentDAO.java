@@ -54,6 +54,15 @@ public class StudentDAO extends BaseDAO implements IStudentDAO {
 
 
     @Override
+    public List showStu(StudentEntity studentEntity) {
+        String hql="from StudentEntity";
+
+        Session session=getSession();
+        Query query=session.createQuery(hql);
+        return query.getResultList();
+    }
+
+    @Override
     public void findStuIdByRegister(StudentEntity studentEntity) {
         String hql = "select stuId from StudentEntity stu where stu.stuIdNum=?";//通过学生注册时输入的身份证号查询学生id
         Session session = getSession();
@@ -65,6 +74,8 @@ public class StudentDAO extends BaseDAO implements IStudentDAO {
         int stu_id = (int) result.get(0);
         Map<String, Object> map = ActionContext.getContext().getSession();
         map.put("stu_id", stu_id);
+
+
 
 
 //        //传到页面
