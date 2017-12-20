@@ -20,17 +20,35 @@ public class ExamAction extends ActionSupport {
 
     private int ex_status;//审核结果
     private int stuId;//被审核学生的id
-
+    private int departId;//被审核组织部门人员的id
 
 
     /**
     审核学生信息
      */
-    public String setExStatus() {
+    public String setStuExStatus() {
         try {
-            examineService.setExamStatus(ex_status, stuId);
+            examineService.setStuExStatus(ex_status, stuId);
             if (ex_status == 1) {
 //                将该学生信息添加到用户表
+                userEntity.setUserPassword("123");
+                userEntity.setUserPermit(1);
+                userService.addUser(userEntity);
+            }
+            return SUCCESS;
+        } catch (Exception e) {
+            return ERROR;
+        }
+    }
+
+    /**
+     * 审核组织部门人员信息
+     */
+    public String setDepartExStatus(){
+        try {
+            examineService.setDepartExStatus(ex_status, departId);
+            if (ex_status == 1) {
+//                将该组织人员信息添加到用户表
                 userEntity.setUserPassword("123");
                 userEntity.setUserPermit(1);
                 userService.addUser(userEntity);
@@ -113,5 +131,13 @@ public class ExamAction extends ActionSupport {
 
     public void setUserService(IUserService userService) {
         this.userService = userService;
+    }
+
+    public int getDepartId() {
+        return departId;
+    }
+
+    public void setDepartId(int departId) {
+        this.departId = departId;
     }
 }

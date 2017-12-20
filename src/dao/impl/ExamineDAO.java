@@ -34,7 +34,7 @@ public class ExamineDAO extends BaseDAO implements IExamineDAO {
     }
 
     @Override
-    public void setExamStatus(int examStatus, int stuId) {
+    public void setStuExStatus(int examStatus, int stuId) {
         Session session = getSession();
         Transaction tx = session.beginTransaction();
         try {
@@ -51,8 +51,28 @@ public class ExamineDAO extends BaseDAO implements IExamineDAO {
     }
 
     @Override
+    public void setDepartExStatus(int examStatus, int departId) {
+        Session session = getSession();
+        Transaction tx = session.beginTransaction();
+        try {
+            String hql = "update ExamineEntity ex set ex.exStatus=? where ex.departId=?";
+            Query query = session.createQuery(hql);
+            query.setParameter(0, examStatus);
+            query.setParameter(1, departId);
+            query.executeUpdate();
+            tx.commit();
+        } catch (Exception e) {
+            System.out.print("…Û∫À ß∞‹");
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public List queryAllDepartToBeAudited(DepartmentEntity departmentEntity, ExamineEntity examineEntity) {
-        return null;
+        String hql="select de from ExamineEntity ex,DepartmentEntity de where ex.departId=de.id and ex.exStatus=0";
+        Session session=getSession();
+        Query query=session.createQuery(hql);
+        return query.getResultList();
     }
 
     @Override

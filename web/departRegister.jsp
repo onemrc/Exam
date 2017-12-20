@@ -27,6 +27,10 @@
         <input type="text" name="departmentEntity.departJobNum">
     </label><br>
 
+    <label>
+        邮箱：
+        <input type="text" name="departmentEntity.departEmail">
+    </label><br>
     <input type="submit" value="提交">
 
 </form>

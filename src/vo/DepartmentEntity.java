@@ -9,6 +9,7 @@ public class DepartmentEntity {
     private int departJobNum;
     private String departUnit;
     private String departStaffName;
+    private String departEmail;
 
     @Id
     @Column(name = "depart_id")
@@ -50,6 +51,16 @@ public class DepartmentEntity {
         this.departStaffName = departStaffName;
     }
 
+    @Basic
+    @Column(name = "depart_email")
+    public String getDepartEmail() {
+        return departEmail;
+    }
+
+    public void setDepartEmail(String departEmail) {
+        this.departEmail = departEmail;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -60,7 +71,9 @@ public class DepartmentEntity {
         if (departId != that.departId) return false;
         if (departJobNum != that.departJobNum) return false;
         if (departUnit != null ? !departUnit.equals(that.departUnit) : that.departUnit != null) return false;
-        return departStaffName != null ? departStaffName.equals(that.departStaffName) : that.departStaffName == null;
+        if (departStaffName != null ? !departStaffName.equals(that.departStaffName) : that.departStaffName != null)
+            return false;
+        return departEmail != null ? departEmail.equals(that.departEmail) : that.departEmail == null;
     }
 
     @Override
@@ -69,6 +82,7 @@ public class DepartmentEntity {
         result = 31 * result + departJobNum;
         result = 31 * result + (departUnit != null ? departUnit.hashCode() : 0);
         result = 31 * result + (departStaffName != null ? departStaffName.hashCode() : 0);
+        result = 31 * result + (departEmail != null ? departEmail.hashCode() : 0);
         return result;
     }
 }

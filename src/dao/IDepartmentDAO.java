@@ -9,4 +9,6 @@ public interface IDepartmentDAO {
 
     //通过组织部门人员注册时输入的姓名和工号查询 id
     int findIdByDepartReg(DepartmentEntity departmentEntity);
+
+
 }

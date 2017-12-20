@@ -16,12 +16,15 @@ public interface IExamineService {
     //    查询未审核的学生id
     List queryStuidByExam(ExamineEntity examineEntity);
 
-    //  审核操作
-    void setExamStatus(int examStatus, int stuId);
+    //  审核学生操作
+    void setStuExStatus(int examStatus, int stuId);
 
     //    查询所有待审核组织部门人员信息
-    List queryAllDepartToBeAudited(DepartmentEntity departmentEntity,ExamineEntity examineEntity);
+    List queryAllDepartToBeAudited(DepartmentEntity departmentEntity, ExamineEntity examineEntity);
 
     //将注册组织部门id存到examine表
     void addDepartIdToExam(ExamineEntity examineEntity);
+
+    //审核组织部门人员信息操作
+    void setDepartExStatus(int examStatus,int departId);
 }

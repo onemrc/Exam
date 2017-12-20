@@ -21,7 +21,7 @@
 
 
         <!--学生审核-->
-        <action name="setExStatus" class="examAction" method="setExStatus">
+        <action name="setExStatus" class="examAction" method="setStuExStatus">
             <result name="success" type="chain">showAllNoRegStu</result>
             <result name="error">error.jsp</result>
         </action>
@@ -42,5 +42,10 @@
             <result name="error">error.jsp</result>
         </action>
 
+        <!--组织部门人员审核-->
+        <action name="setDepartExStatus" class="examAction" method="setDepartExStatus">
+            <result name="success" type="chain">showAllNoRegDepart</result>
+            <result name="error">error.jsp</result>
+        </action>
     </package>
 </struts>

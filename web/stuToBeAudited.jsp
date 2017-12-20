@@ -29,19 +29,21 @@
             <td><s:property value="#stu.stuIdNum"/></td>
             <td><s:property value="#stu.stuPhone"/></td>
             <td><s:property value="#stu.stuEmail"/></td>
-
+            <td>
             <form action="setExStatus.action" method="post">
                 <input type="hidden" name="userEntity.userName" value="<s:property value="#stu.stuName"/>">
                 <input type="hidden" name="userEntity.userEmail" value="<s:property value="#stu.stuEmail"/>">
                 <input type="hidden" name="stuId" value="<s:property value="#stu.stuId"/>">
                 <input type="hidden" name="ex_status" value="1">
-                <td><input type="submit" value="通过" ></td>
+                <input type="submit" value="通过" >
             </form>
+                &nbsp;&nbsp;&nbsp;
             <form action="setExStatus.action" method="post">
                 <input type="hidden" name="stuId" value="<s:property value="#stu.stuId"/>">
                 <input type="hidden" name="ex_status" value="2">
-                <td><input type="submit" value="不通过"></td>
+                <input type="submit" value="不通过">
             </form>
+            </td>
         </tr>
     </s:iterator>
 </table>

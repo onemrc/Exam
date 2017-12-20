@@ -16,6 +16,10 @@
 
 <form action="showAllNoRegStu.action" method="post">
     <input type="submit" value="查询待审核学生信息">
+</form><br>
+
+<form action="showAllNoRegDepart.action" method="post">
+    <input type="submit" value="查询待审核组织部门人员信息">
 </form>
 
 
