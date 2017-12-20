@@ -9,8 +9,6 @@ public interface IStudentDAO {
     //    添加学生信息
     boolean addStudent(StudentEntity studentEntity);
 
-//    保存学生信息
-
     //    添加学生审核信息
     ExamineEntity addStudentToExamine(ExamineEntity examineEntity);
 
@@ -21,6 +19,9 @@ public interface IStudentDAO {
     //    通过学生注册时输入的身份证号查询学生id
     void findStuIdByRegister(StudentEntity studentEntity);
 
-//    显示学生信息
-    List showStu(StudentEntity studentEntity);
+//    //    显示学生信息
+//    List showStu(StudentEntity studentEntity);
+
+    //   查询学生信息（已注册成功）
+    List showStu(StudentEntity studentEntity, ExamineEntity examineEntity);
 }

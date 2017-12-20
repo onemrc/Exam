@@ -5,14 +5,9 @@
 <hibernate-mapping>
 
     <class name="vo.ExamineEntity" table="examine" schema="exam" dynamic-update="true" dynamic-insert="true">
-        <id name="exId">
-            <column name="ex_id" sql-type="int(32)"/>
-        </id>
-        <property name="stuId">
-            <column name="stu_id" sql-type="int(32)"/>
-        </property>
-        <property name="exStatus">
-            <column name="ex_status" sql-type="int(2)"/>
-        </property>
+        <id name="exId" column="ex_id"/>
+        <property name="stuId" column="stu_id"/>
+        <property name="exStatus" column="ex_status"/>
+        <property name="departId" column="depart_id"/>
     </class>
 </hibernate-mapping>

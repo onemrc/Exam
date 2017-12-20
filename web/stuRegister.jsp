@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form action="register.action" method="post">
+<form action="stuRegister.action" method="post">
     <label>
         学生姓名:
         <input type="text" name="studentEntity.stuName">

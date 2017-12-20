@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="vo.DepartmentEntity" table="department" schema="exam" dynamic-update="true" dynamic-insert="true">
+        <id name="departId" column="depart_id"/>
+        <property name="departJobNum" column="depart_jobNum"/>
+        <property name="departUnit" column="depart_unit"/>
+        <property name="departStaffName" column="depart_staff_name"/>
+    </class>
+</hibernate-mapping>

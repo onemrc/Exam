@@ -14,13 +14,16 @@
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <body>
 
-<form action="showStu.action" method="post">
+<form action="showAllNoRegStu.action" method="post">
     <input type="submit" value="查询待审核学生信息">
 </form>
 
 
 <a href="login.jsp">登陆</a><br>
-<a href="register.jsp">注册</a><br>
+
+<a href="stuRegister.jsp">学生注册</a><br>
+
+<a href="departRegister.jsp">组织部门人员注册</a><br>
 
 </body>
 </html>

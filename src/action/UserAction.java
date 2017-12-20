@@ -17,7 +17,7 @@ public class UserAction extends ActionSupport {
 
     //    ÓÃ»§µÇÂ½
     public String login() {
-        UserEntity u = userService.validateUser(userEntity.getUserName(), userEntity.getUserPassword(), userEntity.getUserPermit());
+        UserEntity u = userService.validateUser(userEntity.getUserEmail(), userEntity.getUserPassword(), userEntity.getUserPermit());
         if (u != null) {
             Map<String, Object> session = ActionContext.getContext().getSession();
 

@@ -2,7 +2,9 @@ package service.impl;
 
 import dao.IExamineDAO;
 import service.IExamineService;
+import vo.DepartmentEntity;
 import vo.ExamineEntity;
+import vo.StudentEntity;
 
 import java.util.List;
 
@@ -15,8 +17,13 @@ public class ExamineService implements IExamineService {
     }
 
     @Override
-    public List showExam(ExamineEntity examineEntity) {
-        return examineDAO.showExam(examineEntity);
+    public List queryAllStuToBeAudited(ExamineEntity examineEntity, StudentEntity studentEntity) {
+        return examineDAO.queryAllStuToBeAudited(examineEntity,studentEntity);
+    }
+
+    @Override
+    public List queryAllDepartToBeAudited(DepartmentEntity departmentEntity, ExamineEntity examineEntity) {
+        return examineDAO.queryAllDepartToBeAudited(departmentEntity,examineEntity);
     }
 
     @Override
@@ -25,8 +32,13 @@ public class ExamineService implements IExamineService {
     }
 
     @Override
-    public void setExamStatus(int examStatus,int stuId) {
-        examineDAO.setExamStatus(examStatus,stuId);
+    public void setExamStatus(int examStatus, int stuId) {
+        examineDAO.setExamStatus(examStatus, stuId);
+    }
+
+    @Override
+    public void addDepartIdToExam(ExamineEntity examineEntity) {
+        examineDAO.addDepartIdToExam(examineEntity);
     }
 
     public IExamineDAO getExamineDAO() {

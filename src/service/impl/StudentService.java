@@ -2,6 +2,7 @@ package service.impl;
 
 import dao.IStudentDAO;
 import service.IStudentService;
+import vo.ExamineEntity;
 import vo.StudentEntity;
 
 import java.util.List;
@@ -24,9 +25,15 @@ public class StudentService implements IStudentService {
         studentDAO.findStuIdByRegister(studentEntity);
     }
 
+
     @Override
-    public List showStu(StudentEntity studentEntity) {
-        return studentDAO.showStu(studentEntity);
+    public ExamineEntity addStudentToExamine(ExamineEntity examineEntity) {
+        return studentDAO.addStudentToExamine(examineEntity);
+    }
+
+    @Override
+    public List showStu(StudentEntity studentEntity, ExamineEntity examineEntity) {
+        return studentDAO.showStu(studentEntity, examineEntity);
     }
 
     public IStudentDAO getStudentDAO() {

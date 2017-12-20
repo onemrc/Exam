@@ -11,6 +11,7 @@
         <property name="password" value="123456"/>
     </bean>
 
+    <!--配置sqlSession 对象工厂类-->
     <bean id="sessionFaction" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="hibernateProperties">
@@ -27,16 +28,19 @@
                 <value>vo/UserEntity.hbm.xml</value>
                 <value>vo/StudentEntity.hbm.xml</value>
                 <value>vo/ExamineEntity.hbm.xml</value>
+               <value>vo/DepartmentEntity.hbm.xml</value>
             </list>
         </property>
         <property name="annotatedClasses">
             <list>
                 <value>vo.ExamineEntity</value>
                 <value>vo.UserEntity</value>
+                <value>vo.DepartmentEntity</value>
             </list>
         </property>
     </bean>
 
+    <!--DAO层-->
     <bean id="baseDAO" class="dao.BaseDAO">
         <property name="sessionFactory" ref="sessionFaction"/>
     </bean>
@@ -44,20 +48,35 @@
     <bean id="userDAO" class="dao.impl.UserDAO" parent="baseDAO">
     </bean>
 
+    <bean id="studentDAO" class="dao.impl.StudentDAO" parent="baseDAO"/>
+
+    <bean id="examineDAO" class="dao.impl.ExamineDAO" parent="baseDAO"/>
+
+    <bean id="departmentDAO" class="dao.impl.DepartMentDAO" parent="baseDAO"/>
+
+    <!--Service层-->
+
     <bean id="userService" class="service.impl.UserService">
         <property name="userDAO" ref="userDAO"/>
     </bean>
 
+    <bean id="studentService" class="service.impl.StudentService">
+        <property name="studentDAO" ref="studentDAO"/>
+    </bean>
 
-    <bean id="userAction" class="action.UserAction">
-        <property name="userService" ref="userService"/>
+    <bean id="examineService" class="service.impl.ExamineService">
+        <property name="examineDAO" ref="examineDAO"/>
+    </bean>
+
+    <bean id="departmentService" class="service.impl.DepartmentService">
+        <property name="departmentDAO" ref="departmentDAO"/>
     </bean>
 
 
-    <bean id="studentDAO" class="dao.impl.StudentDAO" parent="baseDAO"/>
+    <!--Action层-->
 
-    <bean id="studentService" class="service.impl.StudentService">
-        <property name="studentDAO" ref="studentDAO"/>
+    <bean id="userAction" class="action.UserAction">
+        <property name="userService" ref="userService"/>
     </bean>
 
     <bean id="studentAction" class="action.StudentAction">
@@ -65,14 +84,15 @@
         <property name="examineService" ref="examineService"/>
     </bean>
 
-    <bean id="examineDAO" class="dao.impl.ExamineDAO" parent="baseDAO"/>
-
-    <bean class="service.impl.ExamineService" id="examineService">
-        <property name="examineDAO" ref="examineDAO"/>
-    </bean>
-
-    <bean class="action.ExamAction" id="examAction">
+    <bean id="examAction" class="action.ExamAction" >
         <property name="examineService" ref="examineService"/>
         <property name="userService" ref="userService"/>
     </bean>
+
+    <bean id="departmentAction" class="action.DepartmentAction">
+        <property name="departmentService" ref="departmentService"/>
+        <property name="examineService" ref="examineService"/>
+    </bean>
+
+
 </beans>

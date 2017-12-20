@@ -22,7 +22,7 @@
         <td>邮箱</td>
         <td>操作</td>
     </tr>
-    <s:iterator id="stu" value="#request['stuList']">
+    <s:iterator id="stu" value="#request['allNoRegStu']">
         <tr>
             <td><s:property value="#stu.stuId"/></td>
             <td><s:property value="#stu.stuName"/></td>
@@ -30,14 +30,14 @@
             <td><s:property value="#stu.stuPhone"/></td>
             <td><s:property value="#stu.stuEmail"/></td>
 
-            <form action="setExStatus" method="post">
-                <input type="hidden" name="userName" value="<s:property value="#stu.stuName"/>">
-                <input type="hidden" name="userEmail" value="<s:property value="#stu.stuEmail"/>">
+            <form action="setExStatus.action" method="post">
+                <input type="hidden" name="userEntity.userName" value="<s:property value="#stu.stuName"/>">
+                <input type="hidden" name="userEntity.userEmail" value="<s:property value="#stu.stuEmail"/>">
                 <input type="hidden" name="stuId" value="<s:property value="#stu.stuId"/>">
                 <input type="hidden" name="ex_status" value="1">
                 <td><input type="submit" value="通过" ></td>
             </form>
-            <form action="setExStatus" method="post">
+            <form action="setExStatus.action" method="post">
                 <input type="hidden" name="stuId" value="<s:property value="#stu.stuId"/>">
                 <input type="hidden" name="ex_status" value="2">
                 <td><input type="submit" value="不通过"></td>

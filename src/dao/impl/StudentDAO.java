@@ -4,7 +4,6 @@ import com.opensymphony.xwork2.ActionContext;
 import dao.BaseDAO;
 import dao.IStudentDAO;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import vo.ExamineEntity;
 import vo.StudentEntity;
@@ -15,20 +14,7 @@ import java.util.Map;
 public class StudentDAO extends BaseDAO implements IStudentDAO {
     @Override
     public boolean addStudent(StudentEntity studentEntity) {
-        Session session = getSession();
-        //开启事务
-        Transaction tx = session.beginTransaction();
-        try {
-            session.save(studentEntity);
-            //提交事务
-            tx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-
-        session.close();
-        return true;
+        return saveEntity(studentEntity);
     }
 
     @Override
@@ -53,12 +39,21 @@ public class StudentDAO extends BaseDAO implements IStudentDAO {
     }
 
 
-    @Override
-    public List showStu(StudentEntity studentEntity) {
-        String hql="from StudentEntity";
+//    @Override
+//    public List showStu(StudentEntity studentEntity) {
+//        String hql = "from StudentEntity";
+//
+//        Session session = getSession();
+//        Query query = session.createQuery(hql);
+//        return query.getResultList();
+//    }
 
-        Session session=getSession();
-        Query query=session.createQuery(hql);
+    @Override
+    public List showStu(StudentEntity studentEntity, ExamineEntity examineEntity) {
+        String hql = "select stu from StudentEntity stu,ExamineEntity ex where stu.stuId=ex.stuId and ex.exStatus=0";
+
+        Session session = getSession();
+        Query query = session.createQuery(hql);
         return query.getResultList();
     }
 
@@ -75,12 +70,6 @@ public class StudentDAO extends BaseDAO implements IStudentDAO {
         Map<String, Object> map = ActionContext.getContext().getSession();
         map.put("stu_id", stu_id);
 
-
-
-
-//        //传到页面
-//        ActionContext actionContext=ActionContext.getContext();
-//        actionContext.put("stu_id",stu_id);
 
     }
 }

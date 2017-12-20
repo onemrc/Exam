@@ -11,14 +11,14 @@ import java.util.List;
 
 public class UserDAO extends BaseDAO implements IUserDAO {
     @Override
-    public UserEntity validateUser(String userName, String password, int permit) {
-        String hql = "from UserEntity u where u.userName=? and u.userPassword=? and u.userPermit=?";
+    public UserEntity validateUser(String userEmail, String password, int permit) {
+        String hql = "from UserEntity u where u.userEmail=? and u.userPassword=? and u.userPermit=?";
 
         Session session = getSession();
         Query query = session.createQuery(hql);
 
         int index = 0;
-        query.setParameter(index, userName);
+        query.setParameter(index, userEmail);
         query.setParameter(++index, password);
         query.setParameter(++index, permit);
 
