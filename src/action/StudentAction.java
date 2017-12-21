@@ -2,11 +2,15 @@ package action;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.ServletActionContext;
+import org.hibernate.Session;
 import service.IExamineService;
 import service.IStudentService;
 import vo.ExamineEntity;
 import vo.StudentEntity;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Map;
 
 public class StudentAction extends ActionSupport {
@@ -40,28 +44,18 @@ public class StudentAction extends ActionSupport {
         examineService.addStuIdToExam(examineEntity);
     }
 
-//    //    显示学生信息
-//    public String showStu() {
-//        StudentEntity studentEntity = new StudentEntity();
-//        List result = studentService.showStu(studentEntity);
-//        HttpServletRequest request = ServletActionContext.getRequest();
-//        request.setAttribute("stuList", result);
-//        if (result.size() != 0) {
-//            return SUCCESS;
-//        }
-//        return ERROR;
-//    }
+    /*
+    显示所有学生信息（已注册成功）
+     */
+    public String showAllRegStu(){
+        StudentEntity studentEntity=new StudentEntity();
+        ExamineEntity examineEntity=new ExamineEntity();
+        List resultList=studentService.showAllRegStu(studentEntity,examineEntity);
+        HttpServletRequest request= ServletActionContext.getRequest();
+        request.setAttribute("AllRegStu",resultList);
+        return SUCCESS;
+    }
 
-//    //显示待注册学生信息
-//    public String showNoRegStu() {
-//        StudentEntity studentEntity = new StudentEntity();
-//        ExamineEntity examineEntity = new ExamineEntity();
-//        List result = studentService.showStu(studentEntity, examineEntity);
-//        HttpServletRequest request = ServletActionContext.getRequest();
-//        request.setAttribute("allNoRegStu", result);
-//
-//        return SUCCESS;
-//    }
 
 
 //    getting、setting

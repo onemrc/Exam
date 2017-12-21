@@ -19,9 +19,7 @@ public interface IStudentService {
     //    通过学生注册时输入的身份证号查询学生id
     void findStuIdByRegister(StudentEntity studentEntity);
 
-//    //    显示学生信息
-//    List showStu(StudentEntity studentEntity);
-
     //   查询学生信息（已注册成功）
-    List showStu(StudentEntity studentEntity, ExamineEntity examineEntity);
+    List showAllRegStu(StudentEntity studentEntity, ExamineEntity examineEntity);
+
 }

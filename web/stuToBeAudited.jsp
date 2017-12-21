@@ -20,15 +20,15 @@
         <td>身份证号</td>
         <td>电话</td>
         <td>邮箱</td>
-        <td>操作</td>
+        <td width="200px">操作</td>
     </tr>
-    <s:iterator id="stu" value="#request['allNoRegStu']">
+    <s:iterator id="NoRegStu" value="#request['AllStuToBeAuditedList']">
         <tr>
-            <td><s:property value="#stu.stuId"/></td>
-            <td><s:property value="#stu.stuName"/></td>
-            <td><s:property value="#stu.stuIdNum"/></td>
-            <td><s:property value="#stu.stuPhone"/></td>
-            <td><s:property value="#stu.stuEmail"/></td>
+            <td><s:property value="#NoRegStu.stuId"/></td>
+            <td><s:property value="#NoRegStu.stuName"/></td>
+            <td><s:property value="#NoRegStu.stuIdNum"/></td>
+            <td><s:property value="#NoRegStu.stuPhone"/></td>
+            <td><s:property value="#NoRegStu.stuEmail"/></td>
             <td>
             <form action="setExStatus.action" method="post">
                 <input type="hidden" name="userEntity.userName" value="<s:property value="#stu.stuName"/>">
@@ -37,7 +37,9 @@
                 <input type="hidden" name="ex_status" value="1">
                 <input type="submit" value="通过" >
             </form>
+            </td>
                 &nbsp;&nbsp;&nbsp;
+                <td>
             <form action="setExStatus.action" method="post">
                 <input type="hidden" name="stuId" value="<s:property value="#stu.stuId"/>">
                 <input type="hidden" name="ex_status" value="2">

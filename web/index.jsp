@@ -20,7 +20,11 @@
 
 <form action="showAllNoRegDepart.action" method="post">
     <input type="submit" value="查询待审核组织部门人员信息">
-</form>
+</form><br>
+
+<form action="showAllRegStu.action" method="post">
+    <input type="submit" value="显示所有已注册学生信息">
+</form><br>
 
 
 <a href="login.jsp">登陆</a><br>
@@ -28,6 +32,10 @@
 <a href="stuRegister.jsp">学生注册</a><br>
 
 <a href="departRegister.jsp">组织部门人员注册</a><br>
+
+
+
+
 
 </body>
 </html>

@@ -47,5 +47,10 @@
             <result name="success" type="chain">showAllNoRegDepart</result>
             <result name="error">error.jsp</result>
         </action>
+
+        <!--显示所有已注册学生信息-->
+        <action name="showAllRegStu" class="studentAction" method="showAllRegStu">
+            <result name="success">showAllRegStu.jsp</result>
+        </action>
     </package>
 </struts>

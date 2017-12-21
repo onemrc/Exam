@@ -38,22 +38,11 @@ public class StudentDAO extends BaseDAO implements IStudentDAO {
         return null;
     }
 
-
-//    @Override
-//    public List showStu(StudentEntity studentEntity) {
-//        String hql = "from StudentEntity";
-//
-//        Session session = getSession();
-//        Query query = session.createQuery(hql);
-//        return query.getResultList();
-//    }
-
     @Override
-    public List showStu(StudentEntity studentEntity, ExamineEntity examineEntity) {
-        String hql = "select stu from StudentEntity stu,ExamineEntity ex where stu.stuId=ex.stuId and ex.exStatus=0";
-
-        Session session = getSession();
-        Query query = session.createQuery(hql);
+    public List showAllRegStu(StudentEntity studentEntity, ExamineEntity examineEntity) {
+        String hql="select stu from StudentEntity stu,ExamineEntity ex where stu.stuId=ex.stuId and ex.exStatus=1";
+        Session session=getSession();
+        Query query=session.createQuery(hql);
         return query.getResultList();
     }
 

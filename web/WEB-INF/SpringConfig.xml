@@ -29,13 +29,23 @@
                 <value>vo/StudentEntity.hbm.xml</value>
                 <value>vo/ExamineEntity.hbm.xml</value>
                <value>vo/DepartmentEntity.hbm.xml</value>
+               <value>vo/ExamEntity.hbm.xml</value>
+                <value>vo/SignupEntity.hbm.xml</value>
+                <value>vo/NoticeEntity.hbm.xml</value>
+                <value>vo/CategoryEntity.hbm.xml</value>
             </list>
         </property>
         <property name="annotatedClasses">
             <list>
-                <value>vo.ExamineEntity</value>
+
                 <value>vo.UserEntity</value>
+                <value>vo.StudentEntity</value>
+                <value>vo.ExamineEntity</value>
                 <value>vo.DepartmentEntity</value>
+                <value>vo.ExamEntity</value>
+                <value>vo.SignupEntity</value>
+                <value>vo.NoticeEntity</value>
+                <value>vo.CategoryEntity</value>
             </list>
         </property>
     </bean>

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="vo.CategoryEntity" table="category" schema="exam" dynamic-update="true" dynamic-insert="true">
+        <id name="categoryId" column="category_id"/>
+        <property name="categoryName" column="category_name"/>
+    </class>
+</hibernate-mapping>
