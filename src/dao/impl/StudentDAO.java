@@ -4,6 +4,7 @@ import com.opensymphony.xwork2.ActionContext;
 import dao.BaseDAO;
 import dao.IStudentDAO;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import vo.ExamineEntity;
 import vo.StudentEntity;
@@ -20,6 +21,22 @@ public class StudentDAO extends BaseDAO implements IStudentDAO {
     @Override
     public ExamineEntity addStudentToExamine(ExamineEntity examineEntity) {
         return null;
+    }
+
+    @Override
+    public boolean removeStu(StudentEntity studentEntity) {
+        try {
+            String hql = "delete from StudentEntity stu where stu.stuId=" + studentEntity.getStuId();
+            Session session = getSession();
+            Transaction tx = session.beginTransaction();
+            Query query = session.createQuery(hql);
+            query.executeUpdate();
+            tx.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
@@ -40,9 +57,9 @@ public class StudentDAO extends BaseDAO implements IStudentDAO {
 
     @Override
     public List showAllRegStu(StudentEntity studentEntity, ExamineEntity examineEntity) {
-        String hql="select stu from StudentEntity stu,ExamineEntity ex where stu.stuId=ex.stuId and ex.exStatus=1";
-        Session session=getSession();
-        Query query=session.createQuery(hql);
+        String hql = "select stu from StudentEntity stu,ExamineEntity ex where stu.stuId=ex.stuId and ex.exStatus=1";
+        Session session = getSession();
+        Query query = session.createQuery(hql);
         return query.getResultList();
     }
 

@@ -14,7 +14,7 @@ import java.util.List;
 public class ExamineDAO extends BaseDAO implements IExamineDAO {
     @Override
     public void addStuIdToExam(ExamineEntity examineEntity) {
-      saveEntity(examineEntity);
+        saveEntity(examineEntity);
     }
 
     @Override
@@ -69,9 +69,9 @@ public class ExamineDAO extends BaseDAO implements IExamineDAO {
 
     @Override
     public List queryAllDepartToBeAudited(DepartmentEntity departmentEntity, ExamineEntity examineEntity) {
-        String hql="select de from ExamineEntity ex,DepartmentEntity de where ex.departId=de.id and ex.exStatus=0";
-        Session session=getSession();
-        Query query=session.createQuery(hql);
+        String hql = "select de from ExamineEntity ex,DepartmentEntity de where ex.departId=de.id and ex.exStatus=0";
+        Session session = getSession();
+        Query query = session.createQuery(hql);
         return query.getResultList();
     }
 

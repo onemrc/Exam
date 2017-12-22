@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--数据库连接配置-->
@@ -28,8 +28,8 @@
                 <value>vo/UserEntity.hbm.xml</value>
                 <value>vo/StudentEntity.hbm.xml</value>
                 <value>vo/ExamineEntity.hbm.xml</value>
-               <value>vo/DepartmentEntity.hbm.xml</value>
-               <value>vo/ExamEntity.hbm.xml</value>
+                <value>vo/DepartmentEntity.hbm.xml</value>
+                <value>vo/ExamEntity.hbm.xml</value>
                 <value>vo/SignupEntity.hbm.xml</value>
                 <value>vo/NoticeEntity.hbm.xml</value>
                 <value>vo/CategoryEntity.hbm.xml</value>
@@ -38,7 +38,6 @@
         <property name="annotatedClasses">
             <list>
 
-                <value>vo.UserEntity</value>
                 <value>vo.StudentEntity</value>
                 <value>vo.ExamineEntity</value>
                 <value>vo.DepartmentEntity</value>
@@ -46,6 +45,7 @@
                 <value>vo.SignupEntity</value>
                 <value>vo.NoticeEntity</value>
                 <value>vo.CategoryEntity</value>
+                <value>vo.UserEntity</value>
             </list>
         </property>
     </bean>
@@ -94,7 +94,7 @@
         <property name="examineService" ref="examineService"/>
     </bean>
 
-    <bean id="examAction" class="action.ExamAction" >
+    <bean id="examAction" class="action.ExamAction">
         <property name="examineService" ref="examineService"/>
         <property name="userService" ref="userService"/>
     </bean>

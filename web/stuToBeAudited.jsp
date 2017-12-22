@@ -31,9 +31,9 @@
             <td><s:property value="#NoRegStu.stuEmail"/></td>
             <td>
             <form action="setExStatus.action" method="post">
-                <input type="hidden" name="userEntity.userName" value="<s:property value="#stu.stuName"/>">
-                <input type="hidden" name="userEntity.userEmail" value="<s:property value="#stu.stuEmail"/>">
-                <input type="hidden" name="stuId" value="<s:property value="#stu.stuId"/>">
+                <input type="hidden" name="userEntity.userName" value="<s:property value="#NoRegStu.stuName"/>">
+                <input type="hidden" name="userEntity.userEmail" value="<s:property value="#NoRegStu.stuEmail"/>">
+                <input type="hidden" name="stuId" value="<s:property value="#NoRegStu.stuId"/>">
                 <input type="hidden" name="ex_status" value="1">
                 <input type="submit" value="通过" >
             </form>
@@ -41,7 +41,7 @@
                 &nbsp;&nbsp;&nbsp;
                 <td>
             <form action="setExStatus.action" method="post">
-                <input type="hidden" name="stuId" value="<s:property value="#stu.stuId"/>">
+                <input type="hidden" name="stuId" value="<s:property value="#NoRegStu.stuId"/>">
                 <input type="hidden" name="ex_status" value="2">
                 <input type="submit" value="不通过">
             </form>

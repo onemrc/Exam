@@ -10,5 +10,7 @@
         <property name="userPassword" column="user_password"/>
         <property name="userEmail" column="user_email"/>
         <property name="userPermit" column="user_permit"/>
+        <property name="stuId" column="stu_id"/>
+        <property name="departId" column="depart_id"/>
     </class>
 </hibernate-mapping>

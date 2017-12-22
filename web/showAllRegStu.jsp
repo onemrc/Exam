@@ -18,7 +18,7 @@
         <td>身份证号</td>
         <td>联系电话</td>
         <td>电子邮箱</td>
-        <td width="90px">操作</td>
+        <td>操作</td>
     </tr>
     <s:iterator id="allRegStu" value="#request['AllRegStu']">
         <tr>
@@ -27,8 +27,12 @@
             <td><s:property value="#allRegStu.stuPhone"/> </td>
             <td><s:property value="#allRegStu.stuEmail"/> </td>
             <td>
-            <td >修改</td>
-            <td>删除</td>
+            <td>
+            <form action="deleteStu.action" method="post">
+                <input type="hidden" name="studentEntity.stuId" value="<s:property value="#allRegStu.stuId"/> ">
+                <input type="submit" value="删除">
+            </form>
+        </td>
         </tr>
     </s:iterator>
 </table>

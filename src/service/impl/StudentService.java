@@ -31,10 +31,14 @@ public class StudentService implements IStudentService {
         return studentDAO.addStudentToExamine(examineEntity);
     }
 
+    @Override
+    public boolean removeStu(StudentEntity studentEntity) {
+        return studentDAO.removeStu(studentEntity);
+    }
 
     @Override
     public List showAllRegStu(StudentEntity studentEntity, ExamineEntity examineEntity) {
-        return studentDAO.showAllRegStu(studentEntity,examineEntity);
+        return studentDAO.showAllRegStu(studentEntity, examineEntity);
     }
 
     public IStudentDAO getStudentDAO() {

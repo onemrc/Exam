@@ -27,6 +27,6 @@ public interface IExamineDAO {
     void addDepartIdToExam(ExamineEntity examineEntity);
 
     //审核组织部门人员信息操作
-    void setDepartExStatus(int examStatus,int departId);
+    void setDepartExStatus(int examStatus, int departId);
 
 }

@@ -12,5 +12,7 @@
 </head>
 <body>
 <h1>已递交注册信息，等待审核</h1>
+
+<a href="index.jsp">首页</a>
 </body>
 </html>

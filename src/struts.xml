@@ -52,5 +52,22 @@
         <action name="showAllRegStu" class="studentAction" method="showAllRegStu">
             <result name="success">showAllRegStu.jsp</result>
         </action>
+
+        <!--删除学生信息-->
+        <action name="deleteStu" class="studentAction" method="removeStu">
+            <result name="success" type="chain">showAllRegStu</result>
+            <result name="error">error.jsp</result>
+        </action>
+
+        <!--显示所有已注册组织人员信息-->
+        <action name="showAllRegDepart" class="departmentAction" method="queryAllRegDepart">
+            <result name="success">showAllRegDepart.jsp</result>
+        </action>
+
+        <!--删除组织人员信息-->
+        <action name="deleteDepart" class="departmentAction" method="removeDepart">
+            <result name="success" type="chain">showAllRegDepart</result>
+            <result name="error">error.jsp</result>
+        </action>
     </package>
 </struts>

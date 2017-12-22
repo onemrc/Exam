@@ -26,6 +26,10 @@
     <input type="submit" value="显示所有已注册学生信息">
 </form><br>
 
+<form action="showAllRegDepart.action" method="post">
+    <input type="submit" value="显示所有已注册组织人员信息">
+</form><br>
+
 
 <a href="login.jsp">登陆</a><br>
 

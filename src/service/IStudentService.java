@@ -22,4 +22,6 @@ public interface IStudentService {
     //   查询学生信息（已注册成功）
     List showAllRegStu(StudentEntity studentEntity, ExamineEntity examineEntity);
 
+    //    删除学生信息(连带账户信息)
+    boolean removeStu(StudentEntity studentEntity);
 }

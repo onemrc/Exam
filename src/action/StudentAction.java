@@ -3,7 +3,6 @@ package action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
-import org.hibernate.Session;
 import service.IExamineService;
 import service.IStudentService;
 import vo.ExamineEntity;
@@ -47,16 +46,25 @@ public class StudentAction extends ActionSupport {
     /*
     显示所有学生信息（已注册成功）
      */
-    public String showAllRegStu(){
-        StudentEntity studentEntity=new StudentEntity();
-        ExamineEntity examineEntity=new ExamineEntity();
-        List resultList=studentService.showAllRegStu(studentEntity,examineEntity);
-        HttpServletRequest request= ServletActionContext.getRequest();
-        request.setAttribute("AllRegStu",resultList);
+    public String showAllRegStu() {
+        StudentEntity studentEntity = new StudentEntity();
+        ExamineEntity examineEntity = new ExamineEntity();
+        List resultList = studentService.showAllRegStu(studentEntity, examineEntity);
+        HttpServletRequest request = ServletActionContext.getRequest();
+        request.setAttribute("AllRegStu", resultList);
         return SUCCESS;
     }
 
-
+    /*
+    删除学生信息
+     */
+    public String removeStu() {
+        if (studentService.removeStu(studentEntity)) {
+            return SUCCESS;
+        } else {
+            return ERROR;
+        }
+    }
 
 //    getting、setting
 
