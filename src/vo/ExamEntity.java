@@ -1,7 +1,6 @@
 package vo;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 @Entity
 @Table(name = "exam", schema = "exam")
@@ -9,7 +8,7 @@ public class ExamEntity {
     private int examId;
     private String examName;
     private int categoryId;
-    private Timestamp examTime;
+    private String examTime;
     private String examPlace;
 
     @Id
@@ -44,11 +43,11 @@ public class ExamEntity {
 
     @Basic
     @Column(name = "exam_time")
-    public Timestamp getExamTime() {
+    public String getExamTime() {
         return examTime;
     }
 
-    public void setExamTime(Timestamp examTime) {
+    public void setExamTime(String examTime) {
         this.examTime = examTime;
     }
 

@@ -33,6 +33,7 @@
                 <value>vo/SignupEntity.hbm.xml</value>
                 <value>vo/NoticeEntity.hbm.xml</value>
                 <value>vo/CategoryEntity.hbm.xml</value>
+                <value>vo/StudentsignupEntity.hbm.xml</value>
             </list>
         </property>
         <property name="annotatedClasses">
@@ -46,6 +47,7 @@
                 <value>vo.NoticeEntity</value>
                 <value>vo.CategoryEntity</value>
                 <value>vo.UserEntity</value>
+                <value>vo.StudentsignupEntity</value>
             </list>
         </property>
     </bean>
@@ -63,6 +65,14 @@
     <bean id="examineDAO" class="dao.impl.ExamineDAO" parent="baseDAO"/>
 
     <bean id="departmentDAO" class="dao.impl.DepartMentDAO" parent="baseDAO"/>
+
+    <bean id="examDAO" class="dao.impl.ExamDAO" parent="baseDAO"/>
+
+    <bean id="categoryDAO" class="dao.impl.CategoryDAO" parent="baseDAO"/>
+
+    <bean id="signUpDAO" class="dao.impl.SignUpDAO" parent="baseDAO"/>
+
+    <bean id="studentSignUpDAO" class="dao.impl.StudentSignUpDAO" parent="baseDAO"/>
 
     <!--Service层-->
 
@@ -82,6 +92,21 @@
         <property name="departmentDAO" ref="departmentDAO"/>
     </bean>
 
+    <bean id="examService" class="service.impl.ExamService">
+        <property name="examDAO" ref="examDAO"/>
+    </bean>
+
+    <bean id="categoryService" class="service.impl.CategoryService">
+        <property name="categoryDAO" ref="categoryDAO"/>
+    </bean>
+
+    <bean id="signUpService" class="service.impl.SignUpService">
+        <property name="signUpDAO" ref="signUpDAO"/>
+    </bean>
+
+    <bean id="studentSignUpService" class="service.impl.StudentSignUpService">
+        <property name="studentSignUpDAO" ref="studentSignUpDAO"/>
+    </bean>
 
     <!--Action层-->
 
@@ -94,7 +119,7 @@
         <property name="examineService" ref="examineService"/>
     </bean>
 
-    <bean id="examAction" class="action.ExamAction">
+    <bean id="examineAction" class="action.ExamineAction">
         <property name="examineService" ref="examineService"/>
         <property name="userService" ref="userService"/>
     </bean>
@@ -104,5 +129,20 @@
         <property name="examineService" ref="examineService"/>
     </bean>
 
+    <bean id="examAction" class="action.ExamAction">
+        <property name="examService" ref="examService"/>
+    </bean>
+
+    <bean id="categoryAction" class="action.CategoryAction">
+        <property name="categoryService" ref="categoryService"/>
+    </bean>
+
+    <bean id="signUpAction" class="action.SignUpAction">
+        <property name="signUpService" ref="signUpService"/>
+    </bean>
+
+    <bean id="studentSignUpAcion" class="action.StudentSignUpAction">
+        <property name="studentSignUpService" ref="studentSignUpService"/>
+    </bean>
 
 </beans>

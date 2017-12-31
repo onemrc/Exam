@@ -8,6 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
+    <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link type="text/css" href="css/theme.css" rel="stylesheet">
     <title>$Title$</title>
 </head>
 
@@ -35,10 +38,17 @@
 
 <a href="stuRegister.jsp">学生注册</a><br>
 
-<a href="departRegister.jsp">组织部门人员注册</a><br>
+<a href="page_DepartRegister.jsp">组织部门人员注册</a><br>
 
+<a href="page_addExamCategory.jsp">添加考试类别</a>
 
+<form action="showAllCategory.action" method="post">
+    <input type="submit" value="添加考试信息">
+</form>
 
+<form action="showAllExam.action" method="post">
+    <input type="submit" value="发布报名信息">
+</form>
 
 
 </body>

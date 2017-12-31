@@ -8,10 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>递交审核失败</title>
+    <title>添加失败</title>
 </head>
 <body>
-<h1>递交信息失败</h1>
+<h1>添加失败</h1>
 
 </body>
 </html>

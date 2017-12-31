@@ -7,10 +7,10 @@ import java.sql.Timestamp;
 @Table(name = "signup", schema = "exam")
 public class SignupEntity {
     private int signUpId;
-    private int stuId;
     private int examId;
     private Timestamp signUpStartTime;
     private Timestamp signUpEndTime;
+    private Timestamp signUpPutTime;
 
     @Id
     @Column(name = "signUp_id")
@@ -20,16 +20,6 @@ public class SignupEntity {
 
     public void setSignUpId(int signUpId) {
         this.signUpId = signUpId;
-    }
-
-    @Basic
-    @Column(name = "stu_id")
-    public int getStuId() {
-        return stuId;
-    }
-
-    public void setStuId(int stuId) {
-        this.stuId = stuId;
     }
 
     @Basic
@@ -62,6 +52,16 @@ public class SignupEntity {
         this.signUpEndTime = signUpEndTime;
     }
 
+    @Basic
+    @Column(name = "signUp_putTime")
+    public Timestamp getSignUpPutTime() {
+        return signUpPutTime;
+    }
+
+    public void setSignUpPutTime(Timestamp signUpPutTime) {
+        this.signUpPutTime = signUpPutTime;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -70,20 +70,24 @@ public class SignupEntity {
         SignupEntity that = (SignupEntity) o;
 
         if (signUpId != that.signUpId) return false;
-        if (stuId != that.stuId) return false;
         if (examId != that.examId) return false;
         if (signUpStartTime != null ? !signUpStartTime.equals(that.signUpStartTime) : that.signUpStartTime != null)
             return false;
-        return signUpEndTime != null ? signUpEndTime.equals(that.signUpEndTime) : that.signUpEndTime == null;
+        if (signUpEndTime != null ? !signUpEndTime.equals(that.signUpEndTime) : that.signUpEndTime != null)
+            return false;
+        if (signUpPutTime != null ? !signUpPutTime.equals(that.signUpPutTime) : that.signUpPutTime != null)
+            return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
         int result = signUpId;
-        result = 31 * result + stuId;
         result = 31 * result + examId;
         result = 31 * result + (signUpStartTime != null ? signUpStartTime.hashCode() : 0);
         result = 31 * result + (signUpEndTime != null ? signUpEndTime.hashCode() : 0);
+        result = 31 * result + (signUpPutTime != null ? signUpPutTime.hashCode() : 0);
         return result;
     }
 }

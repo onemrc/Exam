@@ -8,10 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>递交审核成功</title>
+    <title>添加成功</title>
 </head>
 <body>
-<h1>已递交注册信息，等待审核</h1>
+<h1>添加成功</h1>
 
 <a href="index.jsp">首页</a>
 </body>

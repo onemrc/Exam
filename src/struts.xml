@@ -21,19 +21,19 @@
 
 
         <!--学生审核-->
-        <action name="setExStatus" class="examAction" method="setStuExStatus">
+        <action name="setExStatus" class="examineAction" method="setStuExStatus">
             <result name="success" type="chain">showAllNoRegStu</result>
             <result name="error">error.jsp</result>
         </action>
 
         <!--显示所有待审核学生信息-->
-        <action name="showAllNoRegStu" class="examAction" method="queryAllStuToBeAudited">
-            <result name="success">stuToBeAudited.jsp</result>
+        <action name="showAllNoRegStu" class="examineAction" method="queryAllStuToBeAudited">
+            <result name="success">page_StuToBeAudited.jsp</result>
         </action>
 
         <!--显示所有待审核组织部门人员信息-->
-        <action name="showAllNoRegDepart" class="examAction" method="queryAllDepartToBeAudited">
-            <result name="success">departToBeAudited.jsp</result>
+        <action name="showAllNoRegDepart" class="examineAction" method="queryAllDepartToBeAudited">
+            <result name="success">page_DepartToBeAudited.jsp</result>
         </action>
 
         <!--组织部门人员注册-->
@@ -43,14 +43,14 @@
         </action>
 
         <!--组织部门人员审核-->
-        <action name="setDepartExStatus" class="examAction" method="setDepartExStatus">
+        <action name="setDepartExStatus" class="examineAction" method="setDepartExStatus">
             <result name="success" type="chain">showAllNoRegDepart</result>
             <result name="error">error.jsp</result>
         </action>
 
         <!--显示所有已注册学生信息-->
         <action name="showAllRegStu" class="studentAction" method="showAllRegStu">
-            <result name="success">showAllRegStu.jsp</result>
+            <result name="success">page_StuMangement.jsp</result>
         </action>
 
         <!--删除学生信息-->
@@ -61,7 +61,7 @@
 
         <!--显示所有已注册组织人员信息-->
         <action name="showAllRegDepart" class="departmentAction" method="queryAllRegDepart">
-            <result name="success">showAllRegDepart.jsp</result>
+            <result name="success">page_DepartMangement.jsp</result>
         </action>
 
         <!--删除组织人员信息-->
@@ -69,5 +69,42 @@
             <result name="success" type="chain">showAllRegDepart</result>
             <result name="error">error.jsp</result>
         </action>
+
+        <!--新增考试信息-->
+        <action name="addExam" class="examAction" method="addExam">
+            <result name="success">addSuccess.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+
+        <!--新增考试类别信息-->
+        <action name="addExamCategory" class="categoryAction" method="addCategory">
+            <result name="success">addSuccess.jsp</result>
+            <result name="error">addError.jsp</result>
+        </action>
+
+        <!--显示所有考试类别-->
+        <action name="showAllCategory" class="categoryAction" method="queryAllCategory">
+            <result name="success">page_addExam.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+
+        <!--发布报名信息-->
+        <action name="addSignUp" class="signUpAction" method="addSignUp">
+            <result name="success">addSuccess.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+
+        <!--显示所有考试信息-->
+        <action name="showAllExam" class="examAction" method="showAllExamName">
+            <result name="success">addSignUpForm.jsp</result>
+        </action>
+
+        <!--显示所有可报名考试-->
+        <action name="showAllSignUp" class="signUpAction" method="showAllSignUp">
+
+        </action>
+
+        <!--学生选择考试报名-->
+
     </package>
 </struts>

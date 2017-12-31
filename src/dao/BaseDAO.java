@@ -3,6 +3,9 @@ package dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import java.util.List;
 
 public class BaseDAO {
     private SessionFactory sessionFactory;
@@ -35,6 +38,16 @@ public class BaseDAO {
             return false;
         }
         return true;
+    }
+
+    /*
+    查询某实体类全部信息
+     */
+    public List queryEntity(Object object){
+        String hql="from "+object.getClass().getName();
+        Session session=getSession();
+        Query query=session.createQuery(hql);
+        return query.getResultList();
     }
 
 }
