@@ -24,7 +24,12 @@ public class SignUpService implements ISignUpService {
     }
 
     @Override
-    public List queryAllSignUp(SignupEntity signupEntity, ExamEntity examEntity) {
-        return signUpDAO.queryAllSignUp(signupEntity,examEntity);
+    public List querySignUp(SignupEntity signupEntity, ExamEntity examEntity) {
+        return signUpDAO.querySignUp(signupEntity,examEntity);
+    }
+
+    @Override
+    public List queryAllToBeSignUp(SignupEntity signupEntity, ExamEntity examEntity) {
+        return signUpDAO.queryAllToBeSignUp(signupEntity,examEntity);
     }
 }

@@ -1,6 +1,8 @@
 package vo;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.sql.Date;
 
 @Entity
 @Table(name = "exam", schema = "exam")
@@ -10,6 +12,27 @@ public class ExamEntity {
     private int categoryId;
     private String examTime;
     private String examPlace;
+
+    private int examStatus;
+
+    @Basic
+    @Column(name = "exam_status")
+    public int getExamStatus() {
+        return examStatus;
+    }
+
+    public void setExamStatus(int examStatus) {
+        this.examStatus = examStatus;
+    }
+    //    private String strexamTime;
+//
+//    public String getStrexamTime() {
+//        return strexamTime;
+//    }
+//
+//    public void setStrexamTime(String strexamTime) {
+//        this.strexamTime = strexamTime;
+//    }
 
     @Id
     @Column(name = "exam_id")
@@ -48,7 +71,8 @@ public class ExamEntity {
     }
 
     public void setExamTime(String examTime) {
-        this.examTime = examTime;
+//        examTime=ToTimestamp(getStrexamTime());
+        this.examTime =examTime;
     }
 
     @Basic
@@ -84,4 +108,9 @@ public class ExamEntity {
         result = 31 * result + (examPlace != null ? examPlace.hashCode() : 0);
         return result;
     }
+//
+//    //String ->Timestamp
+//    public Timestamp ToTimestamp(String time){
+//        return Timestamp.valueOf(time);
+//    }
 }

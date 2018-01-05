@@ -1,11 +1,3 @@
-<%@ taglib prefix="s" uri="/struts-tags" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: one
-  Date: 12/31/2017
-  Time: 4:23 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <!-- Mirrored from condorthemes.com/cleanzone/pages-blank-header.html by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 31 Mar 2014 14:37:32 GMT -->
@@ -55,81 +47,38 @@
 
     <div class="container-fluid" id="pcont">
         <div class="page-head">
-            <h2>添加考试信息</h2>
+            <h2>index</h2>
 
         </div>
 
         <div class="cl-mcont">
+
             <div class="row">
-                <div class="col-sm-6 col-md-4 ">
+                <div class="col-md-12">
 
                 </div>
-                <div class="col-sm-6 col-md-6 ">
-                    <div class="block-flat ">
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block-flat">
                         <div class="header">
-                            <h3>From</h3>
+                            <h3>这是管理员后台首页</h3>
                         </div>
                         <div class="content">
 
-
-                            <form role="form" action="addExam.action" method="post">
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">选择考试类别</label>
-                                    <div class="form-group">
-                                        <select class="form-control" name="examEntity.categoryId">
-                                            <s:iterator id="category" value="#request['AllCategory']">
-                                                <option value="<s:property value="#category.categoryId"/> ">
-                                                    <s:property value="#category.categoryName"/></option>
-                                            </s:iterator>
-                                        </select>
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">考试名称</label>
-                                        <input type="text" placeholder="" class="form-control"
-                                               name="examEntity.examName">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">考试时间</label><br>
-                                        <div class="form-group">
-                                            <div class="input-group date datetime" data-date-format="yyyy-mm-dd  hh:ii"
-                                                 data-link-field="dtp_input1">
-                                                <input class="form-control" type="text"  readonly
-                                                       name="examEntity.examTime">
-                                                <span class="input-group-addon btn btn-primary"><span
-                                                        class="glyphicon glyphicon-th"></span></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">考试地点</label> <input type="text"
-                                                                                                  placeholder=""
-                                                                                                  class="form-control"
-                                                                                                  name="examEntity.examPlace">
-                                    </div>
-
-
-                                </div>
-
-
-                                <button class="btn btn-primary" type="submit">Submit</button>
-                                <button class="btn btn-default">Cancel</button>
-                            </form>
                         </div>
-
-
                     </div>
                 </div>
             </div>
 
+            <div class="row">
+
+            </div>
 
         </div>
 
-
     </div>
-
-</div>
 
 </div>
 
@@ -147,13 +96,10 @@
 <script type="text/javascript" src="js/jquery.gritter/js/jquery.gritter.js"></script>
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function(){
         //initialize the javascript
         App.init();
     });
-
-
-
 </script>
 
 <!-- Bootstrap core JavaScript
@@ -169,5 +115,4 @@
 
 <!-- Mirrored from condorthemes.com/cleanzone/pages-blank-header.html by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 31 Mar 2014 14:37:32 GMT -->
 
-</body>
-</html>
+<a href="#" class="back-to-top" style="display: none;"><i class="fa fa-angle-up"></i></a><a href="#" class="back-to-top" style="display: none;"><i class="fa fa-angle-up"></i></a><a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a><a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a></body></html>

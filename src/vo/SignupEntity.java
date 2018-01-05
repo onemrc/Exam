@@ -8,9 +8,9 @@ import java.sql.Timestamp;
 public class SignupEntity {
     private int signUpId;
     private int examId;
-    private Timestamp signUpStartTime;
-    private Timestamp signUpEndTime;
-    private Timestamp signUpPutTime;
+    private String signUpStartTime;
+    private String signUpEndTime;
+    private String signUpPutTime;
 
     @Id
     @Column(name = "signUp_id")
@@ -34,31 +34,31 @@ public class SignupEntity {
 
     @Basic
     @Column(name = "signUp_startTime")
-    public Timestamp getSignUpStartTime() {
+    public String getSignUpStartTime() {
         return signUpStartTime;
     }
 
-    public void setSignUpStartTime(Timestamp signUpStartTime) {
+    public void setSignUpStartTime(String signUpStartTime) {
         this.signUpStartTime = signUpStartTime;
     }
 
     @Basic
     @Column(name = "signUp_endTime")
-    public Timestamp getSignUpEndTime() {
+    public String getSignUpEndTime() {
         return signUpEndTime;
     }
 
-    public void setSignUpEndTime(Timestamp signUpEndTime) {
+    public void setSignUpEndTime(String signUpEndTime) {
         this.signUpEndTime = signUpEndTime;
     }
 
     @Basic
     @Column(name = "signUp_putTime")
-    public Timestamp getSignUpPutTime() {
+    public String getSignUpPutTime() {
         return signUpPutTime;
     }
 
-    public void setSignUpPutTime(Timestamp signUpPutTime) {
+    public void setSignUpPutTime(String signUpPutTime) {
         this.signUpPutTime = signUpPutTime;
     }
 

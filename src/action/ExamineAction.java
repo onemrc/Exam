@@ -51,7 +51,7 @@ public class ExamineAction extends ActionSupport {
             if (ex_status == 1) {
 //                将该组织人员信息添加到用户表
                 userEntity.setUserPassword("123");
-                userEntity.setUserPermit(1);
+                userEntity.setUserPermit(2);
                 userEntity.setDepartId(departId);
                 userService.addUser(userEntity);
             }

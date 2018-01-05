@@ -26,4 +26,19 @@ public class ExamService implements IExamService {
     public List queryAllExamName(ExamEntity examEntity) {
         return examDAO.queryAllExam(examEntity);
     }
+
+    @Override
+    public boolean removeExam(ExamEntity examEntity) {
+        return examDAO.removeExam(examEntity);
+    }
+
+    @Override
+    public boolean updateExamStatus(int examId) {
+        return examDAO.updateExamStatus(examId);
+    }
+
+    @Override
+    public List queryOneExam(ExamEntity examEntity) {
+        return examDAO.queryOneExam(examEntity);
+    }
 }

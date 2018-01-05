@@ -74,6 +74,8 @@
 
     <bean id="studentSignUpDAO" class="dao.impl.StudentSignUpDAO" parent="baseDAO"/>
 
+    <bean id="noticeDAO" class="dao.impl.NoticeDAO" parent="baseDAO"/>
+
     <!--Service层-->
 
     <bean id="userService" class="service.impl.UserService">
@@ -108,6 +110,10 @@
         <property name="studentSignUpDAO" ref="studentSignUpDAO"/>
     </bean>
 
+    <bean id="noticeService" class="service.impl.NoticeService">
+        <property name="noticeDAO" ref="noticeDAO"/>
+    </bean>
+
     <!--Action层-->
 
     <bean id="userAction" class="action.UserAction">
@@ -139,10 +145,15 @@
 
     <bean id="signUpAction" class="action.SignUpAction">
         <property name="signUpService" ref="signUpService"/>
+        <property name="examService" ref="examService"/>
     </bean>
 
-    <bean id="studentSignUpAcion" class="action.StudentSignUpAction">
+    <bean id="studentSignUpAction" class="action.StudentSignUpAction">
         <property name="studentSignUpService" ref="studentSignUpService"/>
+    </bean>
+
+    <bean id="noticeAction" class="action.NoticeAction">
+        <property name="noticeService" ref="noticeService"/>
     </bean>
 
 </beans>

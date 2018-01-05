@@ -10,5 +10,6 @@
         <property name="categoryId" column="category_id"/>
         <property name="examTime" column="exam_time"/>
         <property name="examPlace" column="exam_place"/>
+        <property name="examStatus" column="exam_status"/>
     </class>
 </hibernate-mapping>

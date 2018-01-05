@@ -25,4 +25,9 @@ public class UserService implements IUserService {
     public void setUserDAO(IUserDAO userDAO) {
         this.userDAO = userDAO;
     }
+
+    @Override
+    public boolean updatePassword(UserEntity userEntity,String newPassword) {
+        return userDAO.updatePassword(userEntity,newPassword);
+    }
 }

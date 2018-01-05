@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: one
@@ -13,6 +14,6 @@
 <body>
 <h1>添加成功</h1>
 
-<a href="index.jsp">首页</a>
+<a href="showAllRegStu.action">首页</a>
 </body>
 </html>

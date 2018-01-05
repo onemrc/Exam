@@ -9,7 +9,7 @@ public class StudentsignupEntity {
     private int stuId;
     private int stuSignUpId;
     private int signUpId;
-    private Timestamp signUpTime;
+    private String signUpTime;
 
     @Basic
     @Column(name = "stu_id")
@@ -43,11 +43,11 @@ public class StudentsignupEntity {
 
     @Basic
     @Column(name = "signUp_time")
-    public Timestamp getSignUpTime() {
+    public String getSignUpTime() {
         return signUpTime;
     }
 
-    public void setSignUpTime(Timestamp signUpTime) {
+    public void setSignUpTime(String signUpTime) {
         this.signUpTime = signUpTime;
     }
 

@@ -37,7 +37,7 @@
                 <h3 class="text-center"><img class="logo-img" src="images/logo.png" alt="logo">考试报名系统</h3>
             </div>
             <div>
-                <form style="margin-bottom: 0px !important;" class="form-horizontal" action="stuRegister.action" >
+                <form style="margin-bottom: 0px !important;" class="form-horizontal" action="stuRegister.action" method="post" >
                     <div class="content">
                         <h5 class="title text-center"><strong>学生注册</strong></h5>
                         <hr>

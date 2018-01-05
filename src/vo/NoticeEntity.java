@@ -9,7 +9,7 @@ public class NoticeEntity {
     private int noticeId;
     private String noticeTitle;
     private String noticeAbout;
-    private Timestamp publishesTime;
+    private String publishesTime;
 
     @Id
     @Column(name = "notice_id")
@@ -43,11 +43,11 @@ public class NoticeEntity {
 
     @Basic
     @Column(name = "publishes_time")
-    public Timestamp getPublishesTime() {
+    public String getPublishesTime() {
         return publishesTime;
     }
 
-    public void setPublishesTime(Timestamp publishesTime) {
+    public void setPublishesTime(String publishesTime) {
         this.publishesTime = publishesTime;
     }
 

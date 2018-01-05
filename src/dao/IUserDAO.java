@@ -9,5 +9,6 @@ public interface IUserDAO {
 
     UserEntity addUser(UserEntity userEntity);
 
-
+//    ĞŞ¸ÄÃÜÂë
+    boolean updatePassword(UserEntity userEntity,String newPassword);
 }

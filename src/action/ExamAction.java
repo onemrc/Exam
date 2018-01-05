@@ -38,7 +38,7 @@ public class ExamAction extends ActionSupport {
     }
 
     /**
-     * 显示所有考试信息
+     * 显示所有考试信息(未发布)
      */
     public String showAllExamName(){
         ExamEntity examEntity=new ExamEntity();
@@ -46,5 +46,26 @@ public class ExamAction extends ActionSupport {
         HttpServletRequest request= ServletActionContext.getRequest();
         request.setAttribute("AllExam",resultList);
         return SUCCESS;
+    }
+
+    /**
+     * 删除考试信息
+     */
+    public String deleteExam(){
+        if (examService.removeExam(examEntity))
+            return SUCCESS;
+        return ERROR;
+    }
+
+    /**
+     * 查询某一考试信息
+     */
+    public String queryOneExam(){
+        List resultList=examService.queryOneExam(examEntity);
+        HttpServletRequest request=ServletActionContext.getRequest();
+        request.setAttribute("examInfo",resultList);
+        if (resultList.size()!=0)
+            return SUCCESS;
+        return ERROR;
     }
 }

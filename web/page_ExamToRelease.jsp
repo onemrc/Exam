@@ -2,8 +2,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: one
-  Date: 12/29/2017
-  Time: 3:59 PM
+  Date: 12/31/2017
+  Time: 6:17 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -55,7 +55,7 @@
 
     <div class="container-fluid" id="pcont">
         <div class="page-head">
-            <h2>组织部门人员注册审核</h2>
+            <h2>考试信息管理</h2>
 
         </div>
 
@@ -71,7 +71,7 @@
                 <div class="col-md-12">
                     <div class="block-flat">
                         <div class="header">
-                            <h3>Horizontal Icons</h3>
+                            <h3>可发布考试信息</h3>
                         </div>
                         <div class="content">
                             <div class="table-responsive">
@@ -108,65 +108,52 @@
                                             <th class="sorting" role="columnheader" tabindex="0"
                                                 aria-controls="datatable-icons" rowspan="1" colspan="1"
                                                 aria-label="Browser: activate to sort column ascending"
-                                                style="width: 100px;">姓名
+                                                style="width: 100px;">考试名称
                                             </th>
                                             <th class="sorting" role="columnheader" tabindex="0"
                                                 aria-controls="datatable-icons" rowspan="1" colspan="1"
                                                 aria-label="Platform(s): activate to sort column ascending"
-                                                style="width: 150px;">工号
+                                                style="width: 150px;">考试时间
                                             </th>
                                             <th class="sorting" role="columnheader" tabindex="0"
                                                 aria-controls="datatable-icons" rowspan="1" colspan="1"
                                                 aria-label="Platform(s): activate to sort column ascending"
-                                                style="width: 150px;">所属部门
-                                            </th>
-                                            <th class="sorting" role="columnheader" tabindex="0"
-                                                aria-controls="datatable-icons" rowspan="1" colspan="1"
-                                                aria-label="Engine version: activate to sort column ascending"
-                                                style="width: 156px;">邮箱
+                                                style="width: 150px;">考试地点
                                             </th>
                                             <th class="sorting" role="columnheader" tabindex="0"
                                                 aria-controls="datatable-icons" rowspan="1" colspan="1"
                                                 aria-label="CSS grade: activate to sort column ascending"
-                                                style="width: 176px;">审核操作
+                                                style="width: 176px;">操作
                                             </th>
                                         </tr>
                                         </thead>
-
+<s:iterator id="AllSignUp" value="#request['AllExam']">
                                         <tbody role="alert" aria-live="polite" aria-relevant="all">
-                                        <s:iterator id="depart" value="#request['AllDepartToBeAudited']">
                                         <tr class="gradeA even">
-                                            <td class="  sorting_1"><s:property value="#depart.departId"/></td>
-                                            <td class=" "><s:property value="#depart.departStaffName"/></td>
-                                            <td class="center "><s:property value="#depart.departJobNum"/> </td>
-                                            <td class=" "><s:property value="#depart.departUnit"/></td>
-                                            <td class="center "><s:property value="#depart.departEmail"/> </td>
+                                            <td class="  sorting_1"><s:property value="#AllSignUp.examId"/> </td>
+                                            <td class=" "><s:property value="#AllSignUp.examName"/> </td>
+                                            <td class=" "><s:property value="#AllSignUp.examTime"/> </td>
+                                            <td class="center "><s:property value="#AllSignUp.examPlace"/> </td>
 
-                                            <form action="setDepartExStatus.action" method="post" id="set1">
-                                                <input type="hidden" name="userEntity.userName" value="<s:property value="#depart.departStaffName"/>">
-                                                <input type="hidden" name="userEntity.userEmail" value="<s:property value="#depart.departEmail"/>">
-                                                <input type="hidden" name="departId" value="<s:property value="#depart.departId"/>">
-                                                <input type="hidden" name="ex_status" value="1">
+                                            <form action="seleteOneExam.action" method="post" id="examId">
+                                                <input type="hidden" name="examEntity.examId" value="<s:property value="#AllSignUp.examId"/>">
                                             </form>
-                                            <form action="setDepartExStatus.action" method="post" id="set2">
-                                                <input type="hidden" name="departId" value="<s:property value="#depart.departId"/>">
-                                                <input type="hidden" name="ex_status" value="2">
-                                            </form>
+<form action="deleteExam.action" method="post" id="delete">
+    <input type="hidden" name="examEntity.examId" value="<s:property value="#AllSignUp.examId"/>">
+</form>
 
 
-                                            <td class="center ">
-                                                <a class="btn btn-primary btn-xs" href="#"
-                                                                   data-original-title="通过" data-toggle="tooltip"
-                                            onclick="document.getElementById('set1').submit();"><i
-                                                    class="fa fa-check"></i></a>
-                                                <a class="btn btn-danger btn-xs"
+                                            <td class="center "><a class="btn btn-primary btn-xs" href="#"
+                                                                   data-original-title="发布" data-toggle="tooltip" onclick="document.getElementById('examId').submit()"><i
+                                                    class="fa  fa-check"></i></a> <a class="btn btn-danger btn-xs"
                                                                                      href="#"
-                                                                                     data-original-title="不通过"
-                                                                                     data-toggle="tooltip"><i
-                                                    class="fa fa-times" onclick="document.getElementById('set2').submit();"></i></a></td>
+                                                                                     data-original-title="删除"
+                                                                                     data-toggle="tooltip"
+                                            onclick="document.getElementById('delete').submit()"><i
+                                                    class="fa fa-times"></i></a></td>
                                         </tr>
-                                        </s:iterator>
                                         </tbody>
+</s:iterator>
                                     </table>
                                     <div class="row">
                                         <div class="col-sm-12">
@@ -247,5 +234,5 @@
                                                                                             style="display: none;"><i
         class="fa fa-angle-up"></i></a><a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a><a href="#"
                                                                                                             class="back-to-top"><i
-        class="fa fa-angle-up"></i></a></body>
+        class="fa fa-angle-up"></i></a><a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a></body>
 </html>

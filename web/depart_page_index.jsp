@@ -1,12 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: one
-  Date: 12/29/2017
-  Time: 4:46 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8"%>
-<html lang="en"><!-- Mirrored from condorthemes.com/cleanzone/pages-blank-header.html by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 31 Mar 2014 14:37:32 GMT --><head>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html lang="en">
+<!-- Mirrored from condorthemes.com/cleanzone/pages-blank-header.html by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 31 Mar 2014 14:37:32 GMT -->
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -48,47 +43,42 @@
 <body style="opacity: 1; margin-left: 0px;">
 
 <!-- Fixed navbar -->
-<%@include file="page_index_iframe.jsp"%>
+<%@include file="depart_index_iframe.jsp"%>
 
-    <div class="container-fluid" id="pcont">
-        <div class="page-head">
-            <h2>添加考试类别</h2>
+<div class="container-fluid" id="pcont">
+    <div class="page-head">
+        <h2>index</h2>
 
+    </div>
+
+    <div class="cl-mcont">
+
+        <div class="row">
+            <div class="col-md-12">
+
+            </div>
         </div>
 
-        <div class="cl-mcont">
-            <div class="row">
-                <div class="col-sm-6 col-md-4 ">
-
-                </div><div class="col-sm-6 col-md-6 ">
-                <div class="block-flat ">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block-flat">
                     <div class="header">
-                        <h3>From</h3>
+                        <h3>这是组织部门后台首页</h3>
                     </div>
                     <div class="content">
-
-                        <form role="form" action="addExamCategory.action" method="post">
-                            <div class="form-group">
-                                <label>考试类别</label> <input type="text" placeholder="" class="form-control" name="categoryEntity.categoryName">
-                            </div>
-
-
-                            <button class="btn btn-primary" type="submit">Submit</button>
-                            <button class="btn btn-default">Cancel</button>
-                        </form>
 
                     </div>
                 </div>
             </div>
+        </div>
 
-
-            </div>
-
-
+        <div class="row">
 
         </div>
 
     </div>
+
+</div>
 
 </div>
 
@@ -125,4 +115,4 @@
 
 <!-- Mirrored from condorthemes.com/cleanzone/pages-blank-header.html by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 31 Mar 2014 14:37:32 GMT -->
 
-</body></html>
+<a href="#" class="back-to-top" style="display: none;"><i class="fa fa-angle-up"></i></a><a href="#" class="back-to-top" style="display: none;"><i class="fa fa-angle-up"></i></a><a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a><a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a></body></html>
